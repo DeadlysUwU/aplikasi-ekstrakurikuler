@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LANTIP 8 SMKN 10 SEMARANG</title>
+<style>
+:root{--primary:#315cf6;--purple:#7548f5;--ink:#172554;--muted:#71809b;--bg:#f5f8ff;--line:#e5eafa;--success:#16a875;--danger:#e5486d}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f7f9ff,#eef4ff);color:var(--ink)}
+.container{width:min(1240px,calc(100% - 36px));margin:auto}
+.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{min-height:76px;display:flex;align-items:center;gap:28px}
+.brand{font-weight:900;font-size:18px;line-height:1.15;letter-spacing:-.6px}.brand span{display:block;font-size:11px;color:var(--muted);letter-spacing:.4px;margin-top:4px}
+.navlinks{display:flex;gap:8px;flex:1;justify-content:center}.navlinks button{background:transparent;color:#53617c}.navlinks button.active{background:#edf1ff;color:var(--primary)}
+button{border:0;border-radius:12px;padding:12px 17px;font:inherit;font-weight:800;cursor:pointer;transition:.18s}button:hover{transform:translateY(-1px)}
+.primary{background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;box-shadow:0 8px 18px #315cf62b}.light{background:#fff;border:1px solid var(--line);color:#52617d}.danger{background:#fff0f3;color:#b4234c}.success{background:#e8faf2;color:#087b51}
+.page-background{background:linear-gradient(135deg,#edf4ff 0%,#f1edff 45%,#eaf0ff 100%);background-attachment:scroll;min-height:100vh}.hero{position:relative;z-index:1;background:linear-gradient(120deg,rgba(237,244,255,.82),rgba(244,240,255,.82));padding:54px 0 94px;background:transparent;background-attachment:scroll;border-bottom:1px solid #e1e8ff}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+.eyebrow{font-weight:900;color:var(--primary);letter-spacing:.6px;font-size:13px;text-transform:uppercase}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-2.4px;margin:15px 0}.hero p{color:#62718c;max-width:650px;line-height:1.7}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.chip{background:#fff;border:1px solid #dfe7ff;border-radius:999px;padding:9px 14px;color:#4262c9;font-size:13px;font-weight:800}
+.quote{background:#fff;border:1px solid #e0e7ff;border-radius:24px;padding:28px;box-shadow:0 15px 45px #3654a512;color:#5f6e8b;line-height:1.9;font-style:italic}.quote strong{display:block;color:var(--primary);font-style:normal;margin-top:15px}
+main{margin-top:-48px;position:relative;z-index:2;padding-bottom:35px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 10px 28px #2b4a8a0b}.stat small{color:var(--muted);font-weight:700}.stat strong{display:block;font-size:30px;margin:8px 0 2px}.stat span{font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:8px;align-items:center;background:#fff;padding:8px;border:1px solid var(--line);border-radius:18px;margin:22px 0}.tabs button{color:#64728c;background:transparent}.tabs button.active{background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff}.tabs .admin{margin-left:auto;background:#fff0f5;color:#c62d58}
+.panel{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:0 12px 32px #2b4a8a0a;margin-bottom:18px}
+.workspace{display:grid;grid-template-columns:235px 1fr;gap:22px}.sidebar{border-right:1px solid var(--line);padding-right:20px}.search{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;background:#fbfcff}.sidebar h3{font-size:14px;margin-top:25px}.category{width:100%;text-align:left;background:transparent;color:#53617c;margin:4px 0}.category.active{background:#edf1ff;color:var(--primary)}
+.heading{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.heading h2{margin:0;font-size:27px;letter-spacing:-1px}.muted{color:var(--muted);font-size:13px;line-height:1.6}.notice{background:#eef5ff;color:#3764bd;border:1px solid #d5e4ff;padding:14px 16px;border-radius:14px;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}.day-group{margin-top:18px;padding:14px;border:1px solid #dce7ff;border-radius:18px;background:linear-gradient(110deg,#f5f9ff,#fbf8ff)}
+.day-title{font-size:20px;font-weight:900;color:#315cf6;margin:0 0 12px}
+.day-cards{display:grid;grid-template-columns:1fr;gap:12px}
+.location{font-weight:800!important;color:#4262c9!important;min-height:auto!important;margin:8px 0!important}
+.nav-admin{background:#fff;border:1px solid #9baeff;color:#315cf6}
+@media(max-width:950px){.day-cards{grid-template-columns:1fr}}
+@media(max-width:650px){.day-cards{grid-template-columns:1fr}.day-group{padding:10px}.extra{padding:15px}}.extra{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;transition:.2s}.extra:hover{transform:translateY(-3px);box-shadow:0 10px 24px #314b8c12}.extra-top{display:flex;gap:12px;align-items:center}.extra-icon{width:54px;height:54px;border-radius:15px;background:#edf2ff;display:grid;place-items:center;font-size:27px}.extra h3{margin:0;font-size:16px}.tag{display:inline-block;margin-top:6px;background:#edf1ff;color:#4262c9;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}.extra p{font-size:13px;color:#71809b;line-height:1.55;min-height:40px}.meta{display:flex;justify-content:space-between;font-size:12px;color:#65738d}.bar{height:8px;background:#e9eef8;border-radius:99px;overflow:hidden;margin-top:9px}.bar div{height:100%;background:linear-gradient(90deg,var(--primary),var(--purple));border-radius:99px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.feature{display:flex;gap:10px;align-items:center}.feature b{font-size:13px}.feature span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}label{display:block;font-size:13px;font-weight:800;margin-bottom:7px;color:#52617c}input,select{width:100%;padding:13px;border:1px solid var(--line);border-radius:11px;background:#fbfcff;font:inherit}input:focus,select:focus{outline:3px solid #e8edff;border-color:#9aabff}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin-top:15px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line)}th{background:#f7f9ff;color:#68758d;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.hidden{display:none!important}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.right{margin-left:auto}
+footer{background:#102044;color:#c7d2eb;padding:30px 0;font-size:12px}footer .brand{color:#fff}
+@media(max-width:950px){.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}}
+@media(max-width:650px){.container{width:min(100% - 22px,1240px)}.nav{gap:12px}.hero{padding:35px 0 75px}.stats{grid-template-columns:repeat(2,1fr)}.workspace{grid-template-columns:1fr}.sidebar{border-right:0;border-bottom:1px solid var(--line);padding:0 0 15px}.cards{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.panel{padding:18px}.tabs{overflow:auto}.tabs button{white-space:nowrap}.hero h1{letter-spacing:-1.4px}}
+
+html{scroll-behavior:smooth}
+section[id],footer[id]{scroll-margin-top:92px}
+#beranda{position:relative}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+  <div class="brand">LANTIP 8<span>SMKN 10 SEMARANG</span></div>
+  <div class="navlinks"><button class="active" onclick="scrollToId('beranda')">⌂ Beranda</button><button onclick="scrollToId('ekstrakurikuler')">♧ Ekstrakurikuler</button><button onclick="scrollToId('informasi')">▣ Informasi</button><button onclick="scrollToId('kontak')">✉ Kontak</button></div><button class="primary" onclick="document.getElementById('username').focus()">Pendaftaran</button> <button class="nav-admin" onclick="showAdmin()">Login Admin</button>
+</div></header>
+
+<div class="page-background">
+<section class="hero" id="beranda"><div class="container hero-grid">
+  <div><div class="eyebrow">☀ Kembangkan Potensi, Raih Prestasi Hidup JOKOWI</div><h1>LANTIP 8<br>SMKN 10 SEMARANG</h1><p>Pilih ekstrakurikuler sesuai minatmu, bangun pengalaman, dan wujudkan masa depan yang lebih cerah.</p><div class="chips"><span class="chip">✦ Prestasi</span><span class="chip">⚒ Karakter</span><span class="chip">✧ Kreativitas</span><span class="chip">♧ Kebersamaan</span></div></div>
+  <div class="quote">“Kegiatan hari ini, adalah bekal untuk masa depan yang lebih baik. Semoga Teman masuk Surga”<strong>— ALFAN SURYA H</strong></div>
+</div></section>
+
+<main class="container">
+<section class="stats">
+  <div class="stat"><small>👥 Total Mahasiswa</small><strong id="statTarget">28</strong><span>Tahun ini</span></div>
+  <div class="stat"><small>✓ Ekstrakurikuler</small><strong id="statExtras">17</strong><span>Pilihan tersedia</span></div>
+  <div class="stat"><small>♧ Kuota Terisi</small><strong id="statFilled">0</strong><span>Dari seluruh ekskul</span></div>
+  <div class="stat"><small>◔ Partisipasi</small><strong id="statParticipation">0%</strong><span>Mahasiswa Aktif</span></div>
+  <div class="stat"><small>▣ Periode</small><strong style="font-size:16px">Sedang Berlangsung</strong><span>Silakan segera memilih</span></div>
+</section>
+
+<div class="tabs"><button class="active" onclick="activateTab(this);showStudent()">🚀 Pemilihan</button><button onclick="activateTab(this);scrollToId('ekstrakurikuler')">▦ Daftar Ekstrakurikuler</button><button onclick="activateTab(this);scrollToId('informasi')">▤ Informasi</button><button onclick="activateTab(this);scrollToId('kontak')">? Bantuan</button></div>
+
+<section class="panel" id="ekstrakurikuler"><div class="heading"><div><h2>🚀 Pilih Ekstrakurikuler</h2><p class="muted">Klik pada kartu ekstrakurikuler untuk melihat pilihan dan mendaftar.</p></div><div class="notice">Anda hanya dapat memilih <b>1 ekstrakurikuler</b>.</div></div>
+<div class="workspace"><aside class="sidebar"><input class="search" id="search" placeholder="⌕ Cari ekstrakurikuler..." oninput="renderCards()"><h3>Kategori</h3><button class="category active" onclick="setCategory('Semua',this)">♟ Semua <span class="right">17</span></button><button class="category" onclick="setCategory('Olahraga',this)">⚽ Olahraga</button><button class="category" onclick="setCategory('Seni & Budaya',this)">♫ Seni & Budaya</button><button class="category" onclick="setCategory('Sains & Teknologi',this)">⚙ Sains & Teknologi</button><button class="category" onclick="setCategory('Keagamaan',this)">♧ Keagamaan</button></aside>
+<div><div id="cards" class="cards"></div></div></div></section>
+
+<section class="panel" id="informasi"><h2>Informasi Pemilihan</h2><p class="muted">Silakan baca ketentuan sebelum melakukan pendaftaran.</p><div class="notice">Setiap mahasiswa hanya dapat memilih satu ekstrakurikuler. Pastikan username, program studi, dan pilihan sudah benar sebelum menekan tombol simpan.</div><h2 style="margin-top:24px">Form Pendaftaran</h2><p class="muted">Lengkapi data berikut, lalu pilih salah satu kartu ekstrakurikuler.</p><div class="formgrid"><div><label>Username</label><input id="username" maxlength="40" placeholder="Contoh: alfan123"></div><div><label>Program Studi</label><input id="prodi" maxlength="80" placeholder="Contoh: Teknik Informatika"></div></div><p class="muted" id="selectedText">Belum ada ekstrakurikuler yang dipilih.</p><div class="actions"><button class="primary" onclick="saveSelection()">Simpan Pilihan</button><button class="light" onclick="resetForm()">Reset Form</button></div></section>
+
+<section class="panel"><div class="features"><div class="feature">⭐ <div><b>Kembangkan Minat & Bakat</b><span>Temukan potensi terbaikmu</span></div></div><div class="feature">♧ <div><b>Bangun Relasi</b><span>Bertemu teman baru</span></div></div><div class="feature">🏆 <div><b>Raih Prestasi</b><span>Ikuti kompetisi dan event</span></div></div><div class="feature">▣ <div><b>Pengalaman Berharga</b><span>Bekal untuk masa depan</span></div></div></div></section>
+
+<section class="panel hidden" id="adminSection"><div class="actions"><h2>Dashboard Admin</h2><button class="light right" onclick="hideAdmin()">Keluar</button></div><p class="muted">Login demo: admin / admin123456</p><div class="formgrid"><div><label>Username Admin</label><input id="adminUser" value="admin"></div><div><label>Password</label><input id="adminPass" type="password" placeholder="admin123456"></div></div><button class="primary" style="margin-top:12px" onclick="loginAdmin()">Masuk Admin</button><p id="adminMsg" class="muted"></p><div id="adminPanel" class="hidden">
+<h3>Kelola Slot Ekstrakurikuler</h3>
+<p class="muted">Admin dapat menambah atau mengurangi kuota. Kuota tidak boleh lebih kecil dari jumlah mahasiswa yang sudah terdaftar.</p>
+<div id="capacityTable" class="tablewrap"></div>
+<h3 style="margin-top:24px">Data Pendaftar</h3><div class="tablewrap"><table><thead><tr><th>Username</th><th>Prodi</th><th>Ekstra</th><th>Aksi</th></tr></thead><tbody id="studentTable"></tbody></table></div></div>
+<div id="editStudentBox" class="hidden" style="margin-top:20px;padding:18px;border:1px solid var(--line);border-radius:16px;background:#f8faff">
+  <h3>Edit Data mahasiswa</h3>
+  <div class="formgrid">
+    <div><label>Username</label><input id="editUsername" maxlength="40"></div>
+    <div><label>Program Studi</label><input id="editProdi" maxlength="80"></div>
+    <div><label>Ekstrakurikuler</label><select id="editExtra"></select></div>
+  </div>
+  <div class="actions" style="margin-top:12px">
+    <button class="primary" onclick="saveEditedStudent()">Simpan Perubahan</button>
+    <button class="light" onclick="cancelEditStudent()">Batal</button>
+  </div>
+  <p id="editStudentMsg" class="muted"></p>
+</div>
+</div></section>
+</main>
+
+</div>
+<footer id="kontak"><div class="container"><div class="brand">LANTIP 8<span>SMKN 10 SEMARANG</span></div><p>Hubungi panitia alfan apabila mengalami kesulitan</p><p>© 2026 LANTIP 8 SMKN 10 SEMARANG. Sistem pemilihan ekstrakurikuler.</p></div></footer>
+
+<script>
+const TARGET=28;
+let category='Semua',selectedId=null,admin=false,editingStudentIndex=null;
+const dataKey='lantip8_modern_data';
+let state=JSON.parse(localStorage.getItem(dataKey)||'null')||{students:[],extras:[
+['Basket','Olahraga','🏀','Senin','Lap. Belakang',20],
+['Voli','Olahraga','🏐','Senin','Lap. Utama',20],
+['Karate','Olahraga','🥋','Senin','Aula',20],
+['Bulu Tangkis','Olahraga','🏸','Selasa','Aula',20],
+['KIR','Sains & Teknologi','⚙️','Selasa','Ruang MS',20],
+['Paduan Suara','Seni & Budaya','🎵','Selasa','Ruang Baita',20],
+['PMR','Kepemimpinan','✚','Selasa','Pojok Baca',20],
+['DC','Seni & Budaya','🥁','Rabu','Lap. Belakang',20],
+['Silat','Olahraga','🥋','Rabu','Lap. Utama',20],
+['Broadcasting','Seni & Budaya','🎙️','Rabu','Ruang Broadcasting',20],
+['Tari','Seni & Budaya','💃','Kamis','Aula',20],
+['Paskibra','Kepemimpinan','🚩','Kamis','Lap. Utama',20],
+['Futsal','Olahraga','⚽','Kamis','Lap. Belakang',20],
+['Catur','Olahraga','♟️','Kamis','Ruang 1',20],
+['Bahasa Jepang','Sains & Teknologi','⛩️','Jumat','Ruang Baita',20],
+['Mading','Seni & Budaya','📰','Jumat','Pojok Baca',20],
+['Pramuka','Kepemimpinan','⚜️','Jumat','Lapangan Utama',20]
+].map((x,i)=>({id:'e'+i,name:x[0],category:x[1],icon:x[2],day:x[3],location:x[4],desc:'Kegiatan '+x[0]+' LANTIP 8',capacity:x[5]}))};
+if(!state.extras.length||!state.extras[0].day||state.extras.length!==17){
+  localStorage.removeItem(dataKey);
+  location.reload();
+}
+function save(){localStorage.setItem(dataKey,JSON.stringify(state))}
+function count(id){return state.students.filter(s=>s.extraId===id).length}
+function setCategory(c,el){category=c;document.querySelectorAll('.category').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderCards()}
+function renderCards(){
+  let q=(document.getElementById('search').value||'').toLowerCase();
+  let list=state.extras.filter(e=>(category==='Semua'||e.category===category)&&(e.name+' '+e.desc+' '+e.location+' '+e.day).toLowerCase().includes(q));
+  const days=['Senin','Selasa','Rabu','Kamis','Jumat'];
+  document.getElementById('cards').innerHTML=days.map(day=>{
+    let dayList=list.filter(e=>e.day===day);
+    if(!dayList.length)return '';
+    return `<div class="day-group"><div class="day-title">${day}</div><div class="day-cards">${dayList.map(e=>{
+      let n=count(e.id),full=n>=e.capacity;
+      return `<article class="extra" onclick="selectExtra('${e.id}')" style="cursor:${full?'not-allowed':'pointer'};border-color:${selectedId===e.id?'#315cf6':''}">
+        <div class="extra-top"><div class="extra-icon">${e.icon}</div><div><h3>${esc(e.name)}</h3><span class="tag">${esc(e.category)}</span></div></div>
+        <p class="location">📍 ${esc(e.location)}</p>
+        <p>${esc(e.desc)}</p>
+        <div class="meta"><span>Kuota ${e.capacity} mahasiswa</span><b>${n}/${e.capacity}</b></div>
+        <div class="bar"><div style="width:${Math.min(100,n/e.capacity*100)}%"></div></div>
+        <p style="margin:8px 0 0;color:${full?'#c2415b':'#16a875'}">${full?'Kuota penuh':selectedId===e.id?'✓ Dipilih':'Tersedia'}</p>
+      </article>`;
+    }).join('')}</div></div>`;
+  }).join('')||'<p class="muted">Ekstrakurikuler tidak ditemukan.</p>';
+}
+function selectExtra(id){let e=state.extras.find(x=>x.id===id);if(!e||count(id)>=e.capacity)return;selectedId=id;document.getElementById('selectedText').textContent='Pilihan: '+e.name;renderCards();document.getElementById('informasi').scrollIntoView({behavior:'smooth',block:'center'})}
+function saveSelection(){let username=document.getElementById('username').value.trim(),prodi=document.getElementById('prodi').value.trim();if(!username||!prodi||!selectedId){alert('Lengkapi username, prodi, dan pilihan ekstrakurikuler.');return}let e=state.extras.find(x=>x.id===selectedId);let existing=state.students.find(s=>s.username.toLowerCase()===username.toLowerCase());if(!existing&&state.students.length>=TARGET){alert('Target 28 mahasiswa sudah tercapai.');return}if(count(selectedId)>=e.capacity&&(!existing||existing.extraId!==selectedId)){alert('Kuota sudah penuh.');return}if(existing){existing.prodi=prodi;existing.extraId=selectedId;existing.updatedAt=new Date().toISOString()}else state.students.push({username,prodi,extraId:selectedId,updatedAt:new Date().toISOString()});save();updateStats();renderCards();alert('Terima kasih! Progress Anda tersimpan oleh Alfan.');resetForm()}
+function resetForm(){document.getElementById('username').value='';document.getElementById('prodi').value='';selectedId=null;document.getElementById('selectedText').textContent='Belum ada ekstrakurikuler yang dipilih.';renderCards()}
+function updateStats(){document.getElementById('statExtras').textContent=state.extras.length;document.getElementById('statFilled').textContent=state.students.length;document.getElementById('statParticipation').textContent=Math.round(state.students.length/TARGET*100)+'%'}
+function showAdmin(){document.getElementById('adminSection').classList.remove('hidden');document.getElementById('adminSection').scrollIntoView({behavior:'smooth'})}
+function hideAdmin(){document.getElementById('adminSection').classList.add('hidden')}
+function loginAdmin(){if(document.getElementById('adminUser').value==='admin'&&document.getElementById('adminPass').value==='admin123'){admin=true;document.getElementById('adminPanel').classList.remove('hidden');renderAdmin()}else document.getElementById('adminMsg').textContent='Username atau password salah.'}
+function renderCapacityAdmin(){
+  document.getElementById('capacityTable').innerHTML='<table><thead><tr><th>Ekstrakurikuler</th><th>Terdaftar</th><th>Kuota</th><th>Aksi</th></tr></thead><tbody>'+
+  state.extras.map(e=>`<tr><td>${esc(e.name)}</td><td>${count(e.id)}</td><td><input id="cap-${e.id}" type="number" min="${count(e.id)}" max="100" value="${e.capacity}" style="width:90px"></td><td><button class="primary" onclick="changeCapacity('${e.id}')">Simpan</button></td></tr>`).join('')+
+  '</tbody></table>';
+}
+function changeCapacity(id){
+  const e=state.extras.find(x=>x.id===id);
+  if(!e)return;
+  const input=document.getElementById('cap-'+id);
+  const value=Number(input.value);
+  const minimum=count(id);
+  if(!Number.isInteger(value)||value<minimum||value>100){
+    alert('Kuota harus berupa angka  '+minimum+' sampai 100.');
+    input.value=e.capacity;
+    return;
+  }
+  e.capacity=value;
+  save();
+  renderCapacityAdmin();
+  renderCards();
+  alert('Kuota '+e.name+' berhasil diperbarui menjadi '+value+' mahasiswa.');
+}
+function renderAdmin(){renderCapacityAdmin();document.getElementById('studentTable').innerHTML=state.students.map((s,i)=>`<tr><td>${esc(s.username)}</td><td>${esc(s.prodi)}</td><td>${esc(state.extras.find(e=>e.id===s.extraId)?.name||'-')}</td><td><button class="light" onclick="editStudent(${i})">Edit</button> <button class="danger" onclick="removeStudent(${i})">Hapus</button></td></tr>`).join('')||'<tr><td colspan="4">Belum ada data.</td></tr>'}
+function editStudent(i){
+  const s=state.students[i];
+  if(!s)return;
+  editingStudentIndex=i;
+  document.getElementById('editUsername').value=s.username;
+  document.getElementById('editProdi').value=s.prodi;
+  document.getElementById('editExtra').innerHTML=state.extras.map(e=>`<option value="${esc(e.id)}">${esc(e.name)}</option>`).join('');
+  document.getElementById('editExtra').value=s.extraId;
+  document.getElementById('editStudentMsg').textContent='';
+  document.getElementById('editStudentBox').classList.remove('hidden');
+  document.getElementById('editStudentBox').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function saveEditedStudent(){
+  if(editingStudentIndex===null)return;
+  const s=state.students[editingStudentIndex];
+  const username=document.getElementById('editUsername').value.trim();
+  const prodi=document.getElementById('editProdi').value.trim();
+  const extraId=document.getElementById('editExtra').value;
+  const msg=document.getElementById('editStudentMsg');
+  if(!username||!prodi||!extraId){msg.textContent='Semua data wajib diisi.';return}
+  const duplicate=state.students.some((x,i)=>i!==editingStudentIndex&&x.username.toLowerCase()===username.toLowerCase());
+  if(duplicate){msg.textContent='Username sudah digunakan mahasiswa lain.';return}
+  const currentExtra=s.extraId;
+  const targetExtra=state.extras.find(e=>e.id===extraId);
+  const targetCount=state.students.filter((x,i)=>i!==editingStudentIndex&&x.extraId===extraId).length;
+  if(!targetExtra||targetCount>=targetExtra.capacity){msg.textContent='Kuota ekstrakurikuler baru sudah penuh.';return}
+  s.username=username;s.prodi=prodi;s.extraId=extraId;s.updatedAt=new Date().toISOString();
+  save();updateStats();renderCards();renderAdmin();cancelEditStudent();
+}
+function cancelEditStudent(){
+  editingStudentIndex=null;
+  document.getElementById('editStudentBox').classList.add('hidden');
+}
+function removeStudent(i){if(confirm('Hapus data mahasiswa ini?')){state.students.splice(i,1);save();updateStats();renderAdmin();renderCards()}}
+function activateTab(el){
+  document.querySelectorAll('.tabs > button').forEach(btn=>btn.classList.remove('active'));
+  if(el)el.classList.add('active');
+}
+function scrollToId(id){
+  const target=document.getElementById(id);
+  if(!target)return;
+  const topbar=document.querySelector('.topbar');
+  const offset=(topbar?topbar.offsetHeight:0)+14;
+  const y=target.getBoundingClientRect().top+window.pageYOffset-offset;
+  window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  document.querySelectorAll('.navlinks button').forEach(btn=>btn.classList.remove('active'));
+  const map={beranda:0,ekstrakurikuler:1,informasi:2,kontak:3};
+  if(map[id]!==undefined && document.querySelectorAll('.navlinks button')[map[id]]){
+    document.querySelectorAll('.navlinks button')[map[id]].classList.add('active');
+  }
+}
+function showStudent(){hideAdmin();scrollToId('ekstrakurikuler')}
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+updateStats();renderCards();
+</script>
+</body>
+</html>
